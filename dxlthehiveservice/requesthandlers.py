@@ -128,8 +128,7 @@ class TheHiveGetCaseRequestCallback(TheHiveApiRequestCallback):
         :param dxlclient.message.Request request: The request message
         """
         super(TheHiveGetCaseRequestCallback, self).on_request(request)
-        case_id, request_body = self._pop_attribute_from_request(
-            request, "id")
+        case_id = self._pop_attribute_from_request(request, "id")[0]
         if case_id:
             self._thehive_client.get(request, "/api/case/{}".format(case_id))
 
@@ -146,8 +145,7 @@ class TheHiveGetCaseTaskRequestCallback(TheHiveApiRequestCallback):
         :param dxlclient.message.Request request: The request message
         """
         super(TheHiveGetCaseTaskRequestCallback, self).on_request(request)
-        task_id, request_body = self._pop_attribute_from_request(
-            request, "id")
+        task_id = self._pop_attribute_from_request(request, "id")[0]
         if task_id:
             self._thehive_client.get(request,
                                      "/api/case/task/{}".format(task_id))
@@ -165,8 +163,7 @@ class TheHiveGetCaseObservableRequestCallback(TheHiveApiRequestCallback):
         :param dxlclient.message.Request request: The request message
         """
         super(TheHiveGetCaseObservableRequestCallback, self).on_request(request)
-        observable_id, request_body = self._pop_attribute_from_request(
-            request, "id")
+        observable_id = self._pop_attribute_from_request(request, "id")[0]
         if observable_id:
             self._thehive_client.get(request,
                                      "/api/case/artifact/{}".format(
@@ -243,8 +240,7 @@ class TheHiveGetAlertRequestCallback(TheHiveApiRequestCallback):
         :param dxlclient.message.Request request: The request message
         """
         super(TheHiveGetAlertRequestCallback, self).on_request(request)
-        case_id, request_body = self._pop_attribute_from_request(
-            request, "id")
+        case_id = self._pop_attribute_from_request(request, "id")[0]
         if case_id:
             self._thehive_client.get(request, "/api/alert/{}".format(case_id))
 

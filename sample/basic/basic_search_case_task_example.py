@@ -5,7 +5,7 @@ import sys
 
 from dxlclient.client_config import DxlClientConfig
 from dxlclient.client import DxlClient
-from dxlclient.message import Message, Event, Request
+from dxlclient.message import Message, Request
 from dxlbootstrap.util import MessageUtils
 
 # Import common logging and configuration
@@ -64,7 +64,7 @@ with DxlClient(config) as client:
             case_search_response.error_code))
         exit(1)
 
-    if len(case_search_response_dict):
+    if case_search_response_dict:
         # Extract the id of the case from the results of the search case request
         case_id = case_search_response_dict[0]["id"]
 

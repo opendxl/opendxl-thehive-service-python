@@ -2,7 +2,6 @@ from __future__ import absolute_import
 import logging
 
 import requests
-from requests.auth import HTTPBasicAuth
 
 from dxlclient.message import Response, ErrorResponse
 from dxlbootstrap.util import MessageUtils
@@ -11,7 +10,7 @@ from dxlbootstrap.util import MessageUtils
 logger = logging.getLogger(__name__)
 
 
-class TheHiveClient:
+class TheHiveClient(object):
     """
     HTTP client through which requests to TheHive server should be sent.
     """
@@ -40,12 +39,57 @@ class TheHiveClient:
             if api_user and api_password else None
         self._verify_certificate = verify_certificate
 
+    @staticmethod
+    def _build_http_error_response(dxl_request, response):
+        """
+        Create a DXL ErrorResponse from the contents of an HTTP response
+        for a request sent to TheHive.
+
+        :param dxlclient.message.Request dxl_request: DXL request containing
+            parameters to forward along in a request to TheHive server.
+        :param requests.Response response: HTTP response received from TheHive.
+        :return: The error response to deliver to the DXL fabric.
+        :rtype: dxlclient.message.ErrorResponse
+        """
+        response_dict = response.json()
+        error_message = response_dict.get("message")
+        if not error_message:
+            errors = response_dict.get("errors")
+            if errors:
+                first_error = errors[0]
+                if isinstance(first_error, dict):
+                    error_message = first_error.get("message")
+                elif isinstance(first_error, list):
+                    first_suberror = first_error[0]
+                    if isinstance(first_suberror, dict):
+                        error_message = first_suberror.get(
+                            "message")
+        if error_message:
+            log_message = "Error handling request: {}".format(
+                error_message
+            )
+        else:
+            # Short error message could not be read from the
+            # response body, so just set a generic description for
+            # the error message in the DXL response.
+            error_message = "Error handling request"
+            log_message = error_message
+        logger.error(log_message)
+        res = ErrorResponse(
+            dxl_request,
+            error_message=error_message \
+                if error_message else "Error handling request",
+            error_code=response.status_code
+        )
+        MessageUtils.dict_to_json_payload(res, response_dict)
+        return res
+
     def _request(self, dxl_request, path, request_fn, body=None):
         """
         Make a request to TheHive server, delivering the response to the
         DXL fabric.
 
-        :param dxlclient.client.Request dxl_request: DXL request containing
+        :param dxlclient.message.Request dxl_request: DXL request containing
             parameters to forward along in a request to TheHive server.
         :param str path: URL subpath for the request to send to TheHive server.
         :param function request_fn: Callback which is invoked to make
@@ -63,40 +107,7 @@ class TheHiveClient:
             else:
                 # TheHive request encountered an error. Attempt to decode
                 # an error message from the response body.
-                try:
-                    response_dict = response.json()
-                    error_message = response_dict.get("message")
-                    if not error_message:
-                        errors = response_dict.get("errors")
-                        if errors:
-                            first_error = errors[0]
-                            if isinstance(first_error, dict):
-                                error_message = first_error.get("message")
-                            elif isinstance(first_error, list):
-                                first_suberror = first_error[0]
-                                if isinstance(first_suberror, dict):
-                                    error_message = first_suberror.get(
-                                        "message")
-                    if error_message:
-                        log_message = "Error handling request: {}".format(
-                            error_message
-                        )
-                    else:
-                        # Short error message could not be read from the
-                        # response body, so just set a generic description for
-                        # the error message in the DXL response.
-                        error_message = "Error handling request"
-                        log_message = error_message
-                    logger.error(log_message)
-                    res = ErrorResponse(
-                        dxl_request,
-                        error_message=error_message \
-                            if error_message else "Error handling request",
-                        error_code=response.status_code
-                    )
-                    MessageUtils.dict_to_json_payload(res, response_dict)
-                except Exception:
-                    raise
+                res = self._build_http_error_response(dxl_request, response)
         except Exception as ex:
             error_str = str(ex)
             logger.exception("Error handling request: %s", error_str)
