@@ -39,12 +39,9 @@ class TheHiveService(Application):
     #: The property used to specify the list of accessible TheHive APIs in the
     #: application configuration file
     _GENERAL_API_NAMES_CONFIG_PROP = "apiNames"
-    #: The property used to specify TheHive API key in the application
+    #: The property used to specify TheHive API principal in the application
     #: configuration file.
-    _GENERAL_API_KEY_CONFIG_PROP = "apiKey"
-    #: The property used to specify the TheHive API username in the application
-    #: configuration file.
-    _GENERAL_API_USER_CONFIG_PROP = "apiUser"
+    _GENERAL_API_PRINCIPAL_CONFIG_PROP = "apiPrincipal"
     #: The property used to specify the TheHive API password in the application
     #: configuration file.
     _GENERAL_API_PASSWORD_CONFIG_PROP = "apiPassword"
@@ -73,9 +70,8 @@ class TheHiveService(Application):
         super(TheHiveService, self).__init__(config_dir,
                                              "dxlthehiveservice.config")
         self._service_unique_id = None
-        self._api_key = None
         self._api_names = None
-        self._api_user = None
+        self._api_principal = None
         self._api_password = None
         self._api_url = None
         self._verify_certificate = None
@@ -212,20 +208,14 @@ class TheHiveService(Application):
             return_type=list,
             raise_exception_if_missing=True)
 
-        self._api_key = self._get_setting_from_config(
+        self._api_principal = self._get_setting_from_config(
             self._GENERAL_CONFIG_SECTION,
-            self._GENERAL_API_KEY_CONFIG_PROP)
-
-        self._api_user = self._get_setting_from_config(
-            self._GENERAL_CONFIG_SECTION,
-            self._GENERAL_API_USER_CONFIG_PROP,
-            raise_exception_if_missing=not self._api_key
-        )
+            self._GENERAL_API_PRINCIPAL_CONFIG_PROP,
+            raise_exception_if_missing=True)
 
         self._api_password = self._get_setting_from_config(
             self._GENERAL_CONFIG_SECTION,
             self._GENERAL_API_PASSWORD_CONFIG_PROP,
-            raise_exception_if_missing=self._api_user
         )
 
         verify_certificate = self._get_setting_from_config(
@@ -277,8 +267,7 @@ class TheHiveService(Application):
         logger.info("Connecting to API URL: %s", self._api_url)
         thehive_client = TheHiveClient(self._dxl_client,
                                        self._api_url,
-                                       self._api_key,
-                                       self._api_user,
+                                       self._api_principal,
                                        self._api_password,
                                        self._verify_certificate)
 

@@ -14,8 +14,8 @@ class TheHiveClient(object):
     """
     HTTP client through which requests to TheHive server should be sent.
     """
-    def __init__(self, dxl_client, api_url, api_key,
-                 api_user, api_password, verify_certificate):
+    def __init__(self, dxl_client, api_url, api_principal,
+                 api_password, verify_certificate):
         """
         Constructor parameters:
         :param dxlclient.client.DxlClient dxl_client: DXL client through which
@@ -33,10 +33,10 @@ class TheHiveClient(object):
         """
         self._dxl_client = dxl_client
         self._api_url = api_url
-        self._request_headers = \
-            {"Authorization": "Bearer {}".format(api_key)} if api_key else {}
-        self._request_auth = (api_user, api_password) \
-            if api_user and api_password else None
+        self._request_headers = {} if api_password else \
+            {"Authorization": "Bearer {}".format(api_principal)}
+        self._request_auth = (api_principal, api_password) \
+            if api_password else None
         self._verify_certificate = verify_certificate
 
     @staticmethod
