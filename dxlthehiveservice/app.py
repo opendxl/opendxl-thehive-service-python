@@ -54,8 +54,12 @@ class TheHiveService(Application):
     #: TheHive server's certificate.
     _GENERAL_VERIFY_CERT_BUNDLE_CONFIG_PROP = "verifyCertBundle"
 
-    #: Default port number at which TheHive API server is expected to be hosted.
-    _DEFAULT_PORT = 9443
+    #: Default plaintext HTTP port number at which TheHive API server is
+    #: expected to be hosted.
+    _DEFAULT_HTTP_PORT = 9000
+    #: Default plaintext HTTPS port number at which TheHive API server is
+    #: expected to be hosted.
+    _DEFAULT_HTTPS_PORT = 9443
     #: Default for whether or not TheHive server is expected to be hosted
     #: under SSL/TLS.
     _DEFAULT_USE_SSL = True
@@ -186,18 +190,19 @@ class TheHiveService(Application):
             self._GENERAL_HOST_CONFIG_PROP,
             raise_exception_if_missing=True)
 
-        port = self._get_setting_from_config(
-            self._GENERAL_CONFIG_SECTION,
-            self._GENERAL_PORT_CONFIG_PROP,
-            return_type=int,
-            default_value=self._DEFAULT_PORT)
-
         use_ssl = self._get_setting_from_config(
             self._GENERAL_CONFIG_SECTION,
             self._GENERAL_USE_SSL_CONFIG_PROP,
             return_type=bool,
             default_value=self._DEFAULT_USE_SSL
         )
+
+        port = self._get_setting_from_config(
+            self._GENERAL_CONFIG_SECTION,
+            self._GENERAL_PORT_CONFIG_PROP,
+            return_type=int,
+            default_value=self._DEFAULT_HTTPS_PORT \
+                if use_ssl else self._DEFAULT_HTTP_PORT)
 
         self._api_url = "http{}://{}:{}".format(
             "s" if use_ssl else "", host, port)
