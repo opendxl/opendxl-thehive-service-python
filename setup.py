@@ -105,7 +105,7 @@ setup(
     # Details
     url="http://www.mcafee.com",
 
-    description="TheHive DXL Python service library",
+    description="TheHive DXL Python Service",
 
     long_description=open('README').read(),
 

@@ -13,10 +13,10 @@ logger = logging.getLogger(__name__)
 
 class TheHiveService(Application):
     """
-    The "TheHive DXL service library" application class.
+    The "TheHive DXL Service" application class.
     """
 
-    #: The service type for the TheHive service API.
+    #: The service type for TheHive service API.
     _SERVICE_TYPE = "/opendxl-thehive/service/thehive-api"
 
     #: The name of the "General" section within the application configuration
@@ -29,7 +29,7 @@ class TheHiveService(Application):
     #: The property used to specify the hostname or IP address of TheHive
     #: server in the application configuration file.
     _GENERAL_HOST_CONFIG_PROP = "host"
-    #: The property used to specify the port number of the TheHive API server in
+    #: The property used to specify the port number of TheHive API server in
     #: the application configuration file.
     _GENERAL_PORT_CONFIG_PROP = "port"
     #: The property used to specify in the application configuration file
@@ -42,7 +42,7 @@ class TheHiveService(Application):
     #: The property used to specify TheHive API principal in the application
     #: configuration file.
     _GENERAL_API_PRINCIPAL_CONFIG_PROP = "apiPrincipal"
-    #: The property used to specify the TheHive API password in the application
+    #: The property used to specify TheHive API password in the application
     #: configuration file.
     _GENERAL_API_PASSWORD_CONFIG_PROP = "apiPassword"
     #: The property used to specify in the application configuration file

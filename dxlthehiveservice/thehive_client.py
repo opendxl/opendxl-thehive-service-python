@@ -18,11 +18,13 @@ class TheHiveClient(object):
                  api_password, verify_certificate):
         """
         Constructor parameters:
+
         :param dxlclient.client.DxlClient dxl_client: DXL client through which
             responses can be sent.
         :param str api_url: URL of TheHive API server.
-        :param str api_key: API key to use for requests made to TheHive server.
-        :param str api_user: API user to use for requests made to TheHive server.
+        :param str api_principal: API key or username to use for requests made
+            to TheHive server. The value is treated as a username only if
+            a non-empty value is specified for the api_password parameter.
         :param str api_password: API password to use for requests made to
             TheHive server.
         :param verify_certificate: For a value of False, do not verify the
@@ -120,7 +122,7 @@ class TheHiveClient(object):
         Perform an HTTP GET request to TheHive server, delivering the response
         to the DXL fabric.
 
-        :param dxlclient.client.Request dxl_request: DXL request containing
+        :param dxlclient.message.Request dxl_request: DXL request containing
             parameters to forward along in a request to TheHive server.
         :param str path: URL subpath for the request to send to TheHive server.
         """
@@ -136,7 +138,7 @@ class TheHiveClient(object):
         Perform an HTTP POST request to TheHive server, delivering the response
         to the DXL fabric.
 
-        :param dxlclient.client.Request dxl_request: DXL request containing
+        :param dxlclient.message.Request dxl_request: DXL request containing
             parameters to forward along in a request to TheHive server.
         :param str path: URL subpath for the request to send to TheHive server.
         :param str body: Body to include in the HTTP request.

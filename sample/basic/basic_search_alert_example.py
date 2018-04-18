@@ -64,4 +64,3 @@ with DxlClient(config) as client:
         print("Error invoking service with topic '{0}': {1} ({2})".format(
             request_topic, alert_search_response.error_message,
             alert_search_response.error_code))
-        exit(1)

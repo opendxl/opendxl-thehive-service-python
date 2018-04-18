@@ -33,9 +33,9 @@ with DxlClient(config) as client:
 
     # Set the payload for the search case request. The request includes two
     # criteria:
-    # - query: Matches only alerts with a value for the 'title' field which
+    # - query: Matches only cases with a value for the 'title' field which
     #     includes the words 'OpenDXL' and 'Task'. This should match
-    #     alerts created by running the
+    #     cases created by running the
     #     'basic_create_case_task_example.py' example.
     # - range: A value of "0-1" causes only one entry from the result set to
     #     be returned.

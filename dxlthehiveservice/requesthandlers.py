@@ -16,7 +16,7 @@ class TheHiveApiRequestCallback(RequestCallback):
 
         :param dxlclient.client.DxlClient dxl_client: DXL client through which
             responses can be sent.
-        :param dxlthehiveclient.thehive_client.TheHiveClient thehive_client:
+        :param dxlthehiveservice.thehive_client.TheHiveClient thehive_client:
             HTTP client through which requests to TheHive server should be sent.
         """
         super(TheHiveApiRequestCallback, self).__init__()
