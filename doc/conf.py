@@ -30,8 +30,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = "TheHive DXL Python service library"
-copyright = "Copyright 2018"
+project = "TheHive DXL Python Service"
+copyright = "2018, McAfee LLC"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
