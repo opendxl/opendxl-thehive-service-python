@@ -143,7 +143,7 @@ class TheHiveClient(object):
         :param str path: URL subpath for the request to send to TheHive server.
         :param str body: Body to include in the HTTP request.
         """
-        if not body:
+        if body is None:
             body = MessageUtils.json_payload_to_dict(dxl_request)
 
         def _handle_request(request_url, body):
