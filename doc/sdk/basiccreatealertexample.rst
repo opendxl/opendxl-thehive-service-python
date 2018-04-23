@@ -15,6 +15,10 @@ Prerequisites
 * The samples configuration step has been completed (see :doc:`sampleconfig`).
 * TheHive DXL service is running, using the ``sample`` configuration
   (see :doc:`running`).
+* In TheHive web user interface, grant the API user permission to create alerts
+  (Allow alerts creation). For more information on user administration, see
+  `TheHive User Management <https://github.com/TheHive-Project/TheHiveDocs/blob/master/admin/admin-guide.md#1-user-management>`__.
+  documentation.
 
 Running
 *******
