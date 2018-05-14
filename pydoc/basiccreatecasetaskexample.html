@@ -1,0 +1,401 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Basic Create Case Task Example &#8212; TheHive DXL Python Service 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Basic Search Alert Example" href="basicsearchalertexample.html" />
+    <link rel="prev" title="Basic Create Case Observable Example" href="basiccreatecaseobservableexample.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="basicsearchalertexample.html" title="Basic Search Alert Example"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="basiccreatecaseobservableexample.html" title="Basic Create Case Observable Example"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TheHive DXL Python Service 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="basic-create-case-task-example">
+<h1>Basic Create Case Task Example<a class="headerlink" href="#basic-create-case-task-example" title="Permalink to this headline">¶</a></h1>
+<p>This sample creates a new case on TheHive server via TheHive <code class="docutils literal notranslate"><span class="pre">Case</span></code> API. The
+sample then adds a task to the stored case via TheHive <code class="docutils literal notranslate"><span class="pre">Task</span></code> API. The sample
+retrieves the case and its associated observable and displays the results of
+all of the API calls.</p>
+<p>For more information on the API methods that this example uses, see the
+<a class="reference external" href="https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/case.md">TheHive REST Case API</a>
+and
+<a class="reference external" href="https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/task.md">TheHive REST Task API</a>
+documentation.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The samples configuration step has been completed (see <a class="reference internal" href="sampleconfig.html"><span class="doc">Samples Configuration</span></a>).</li>
+<li>TheHive DXL service is running, using the <code class="docutils literal notranslate"><span class="pre">sample</span></code> configuration
+(see <a class="reference internal" href="running.html"><span class="doc">Running</span></a>).</li>
+</ul>
+</div>
+<div class="section" id="running">
+<h2>Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h2>
+<p>To run this sample execute the <code class="docutils literal notranslate"><span class="pre">sample/basic/basic_create_task_example.py</span></code>
+script as follows:</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python sample/basic/basic_create_task_example.py
+</pre></div>
+</div>
+</div></blockquote>
+<p>The output should appear similar to the following:</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Response <span class="k">for</span> the create <span class="k">case</span> request: <span class="s1">&#39;{</span>
+<span class="s1">    &quot;_id&quot;: &quot;AWLVqVBjEL_PtpkToK_B&quot;,</span>
+<span class="s1">    &quot;_parent&quot;: null,</span>
+<span class="s1">    &quot;_routing&quot;: &quot;AWLVqVBjEL_PtpkToK_B&quot;,</span>
+<span class="s1">    &quot;_type&quot;: &quot;case&quot;,</span>
+<span class="s1">    &quot;_version&quot;: 1,</span>
+<span class="s1">    &quot;caseId&quot;: 91,</span>
+<span class="s1">    &quot;createdAt&quot;: 1524003064979,</span>
+<span class="s1">    &quot;createdBy&quot;: &quot;admin&quot;,</span>
+<span class="s1">    &quot;customFields&quot;: {},</span>
+<span class="s1">    &quot;description&quot;: &quot;Created by the OpenDXL Case Task Example&quot;,</span>
+<span class="s1">    &quot;flag&quot;: false,</span>
+<span class="s1">    &quot;id&quot;: &quot;AWLVqVBjEL_PtpkToK_B&quot;,</span>
+<span class="s1">    &quot;metrics&quot;: {},</span>
+<span class="s1">    &quot;owner&quot;: &quot;admin&quot;,</span>
+<span class="s1">    &quot;severity&quot;: 3,</span>
+<span class="s1">    &quot;startDate&quot;: 1524003065953,</span>
+<span class="s1">    &quot;status&quot;: &quot;Open&quot;,</span>
+<span class="s1">    &quot;title&quot;: &quot;OpenDXL Case Task Example&quot;,</span>
+<span class="s1">    &quot;tlp&quot;: 2</span>
+<span class="s1">}&#39;</span>
+Response <span class="k">for</span> the get <span class="k">case</span> request: <span class="s1">&#39;{</span>
+<span class="s1">    &quot;_id&quot;: &quot;AWLVqVBjEL_PtpkToK_B&quot;,</span>
+<span class="s1">    &quot;_parent&quot;: null,</span>
+<span class="s1">    &quot;_routing&quot;: &quot;AWLVqVBjEL_PtpkToK_B&quot;,</span>
+<span class="s1">    &quot;_type&quot;: &quot;case&quot;,</span>
+<span class="s1">    &quot;_version&quot;: 1,</span>
+<span class="s1">    &quot;caseId&quot;: 91,</span>
+<span class="s1">    &quot;createdAt&quot;: 1524003064979,</span>
+<span class="s1">    &quot;createdBy&quot;: &quot;admin&quot;,</span>
+<span class="s1">    &quot;customFields&quot;: {},</span>
+<span class="s1">    &quot;description&quot;: &quot;Created by the OpenDXL Case Task Example&quot;,</span>
+<span class="s1">    &quot;flag&quot;: false,</span>
+<span class="s1">    &quot;id&quot;: &quot;AWLVqVBjEL_PtpkToK_B&quot;,</span>
+<span class="s1">    &quot;metrics&quot;: {},</span>
+<span class="s1">    &quot;owner&quot;: &quot;admin&quot;,</span>
+<span class="s1">    &quot;severity&quot;: 3,</span>
+<span class="s1">    &quot;startDate&quot;: 1524003065953,</span>
+<span class="s1">    &quot;status&quot;: &quot;Open&quot;,</span>
+<span class="s1">    &quot;title&quot;: &quot;OpenDXL Case Task Example&quot;,</span>
+<span class="s1">    &quot;tlp&quot;: 2</span>
+<span class="s1">}&#39;</span>
+Response <span class="k">for</span> the create <span class="k">case</span> task request: <span class="s1">&#39;{</span>
+<span class="s1">    &quot;_id&quot;: &quot;AWLVqVSlEL_PtpkToK_D&quot;,</span>
+<span class="s1">    &quot;_parent&quot;: &quot;AWLVqVBjEL_PtpkToK_B&quot;,</span>
+<span class="s1">    &quot;_routing&quot;: &quot;AWLVqVBjEL_PtpkToK_B&quot;,</span>
+<span class="s1">    &quot;_type&quot;: &quot;case_task&quot;,</span>
+<span class="s1">    &quot;_version&quot;: 1,</span>
+<span class="s1">    &quot;createdAt&quot;: 1524003067041,</span>
+<span class="s1">    &quot;createdBy&quot;: &quot;admin&quot;,</span>
+<span class="s1">    &quot;description&quot;: &quot;Created by the OpenDXL Case Task Example&quot;,</span>
+<span class="s1">    &quot;flag&quot;: false,</span>
+<span class="s1">    &quot;id&quot;: &quot;AWLVqVSlEL_PtpkToK_D&quot;,</span>
+<span class="s1">    &quot;order&quot;: 0,</span>
+<span class="s1">    &quot;status&quot;: &quot;InProgress&quot;,</span>
+<span class="s1">    &quot;title&quot;: &quot;OpenDXL Case Task Example&quot;</span>
+<span class="s1">}&#39;</span>
+Response <span class="k">for</span> the get <span class="k">case</span> task request: <span class="s1">&#39;{</span>
+<span class="s1">    &quot;_id&quot;: &quot;AWLVqVSlEL_PtpkToK_D&quot;,</span>
+<span class="s1">    &quot;_parent&quot;: &quot;AWLVqVBjEL_PtpkToK_B&quot;,</span>
+<span class="s1">    &quot;_routing&quot;: &quot;AWLVqVBjEL_PtpkToK_B&quot;,</span>
+<span class="s1">    &quot;_type&quot;: &quot;case_task&quot;,</span>
+<span class="s1">    &quot;_version&quot;: 1,</span>
+<span class="s1">    &quot;createdAt&quot;: 1524003067041,</span>
+<span class="s1">    &quot;createdBy&quot;: &quot;admin&quot;,</span>
+<span class="s1">    &quot;description&quot;: &quot;Created by the OpenDXL Case Task Example&quot;,</span>
+<span class="s1">    &quot;flag&quot;: false,</span>
+<span class="s1">    &quot;id&quot;: &quot;AWLVqVSlEL_PtpkToK_D&quot;,</span>
+<span class="s1">    &quot;order&quot;: 0,</span>
+<span class="s1">    &quot;status&quot;: &quot;InProgress&quot;,</span>
+<span class="s1">    &quot;title&quot;: &quot;OpenDXL Case Task Example&quot;</span>
+<span class="s1">}&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="details">
+<h2>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+<p>In order to enable the various APIs used by this sample, each of the API names
+are listed in the <code class="docutils literal notranslate"><span class="pre">apiNames</span></code> setting under the <code class="docutils literal notranslate"><span class="pre">[General]</span></code> section in the
+<code class="docutils literal notranslate"><span class="pre">sample</span></code> &quot;dxlthehiveservice.config&quot; file that the service uses:</p>
+<blockquote>
+<div><div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[General]</span>
+<span class="na">apiNames</span><span class="o">=</span><span class="s">create_case,...,create_case_task,...,get_case,...,get_case_task,...</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>For more information on the configuration, see the
+<a class="reference internal" href="configuration.html#dxl-service-config-file-label"><span class="std std-ref">Service Configuration File</span></a> section.</p>
+<p>The majority of the sample code is shown below:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the client</span>
+<span class="k">with</span> <span class="n">DxlClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+
+    <span class="c1"># Connect to the fabric</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Connected to DXL fabric.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create the new case request</span>
+    <span class="n">request_topic</span> <span class="o">=</span> <span class="s2">&quot;/opendxl-thehive/service/thehive-api/case/create&quot;</span>
+    <span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">request_topic</span><span class="p">)</span>
+
+    <span class="c1"># Set the payload for the new case request</span>
+    <span class="n">MessageUtils</span><span class="o">.</span><span class="n">dict_to_json_payload</span><span class="p">(</span>
+        <span class="n">req</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;OpenDXL Case Task Example&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Created by the OpenDXL Case Task Example&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="mi">3</span>
+        <span class="p">})</span>
+
+    <span class="c1"># Send the new case request</span>
+    <span class="n">create_case_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">sync_request</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">create_case_response</span><span class="o">.</span><span class="n">message_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">Message</span><span class="o">.</span><span class="n">MESSAGE_TYPE_ERROR</span><span class="p">:</span>
+        <span class="c1"># Display results for the new case request</span>
+        <span class="n">create_case_response_dict</span> <span class="o">=</span> <span class="n">MessageUtils</span><span class="o">.</span><span class="n">json_payload_to_dict</span><span class="p">(</span>
+            <span class="n">create_case_response</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Response for the create case request: &#39;{0}&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">MessageUtils</span><span class="o">.</span><span class="n">dict_to_json</span><span class="p">(</span><span class="n">create_case_response_dict</span><span class="p">,</span>
+                                      <span class="n">pretty_print</span><span class="o">=</span><span class="bp">True</span><span class="p">)))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Error invoking service with topic &#39;{0}&#39;: {1} ({2})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">request_topic</span><span class="p">,</span> <span class="n">create_case_response</span><span class="o">.</span><span class="n">error_message</span><span class="p">,</span>
+            <span class="n">create_case_response</span><span class="o">.</span><span class="n">error_code</span><span class="p">))</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>After connecting to the DXL fabric, a request message is created with a topic
+that targets the &quot;create_case&quot; method of TheHive API DXL service.</p>
+<p>The next step is to set the <code class="docutils literal notranslate"><span class="pre">payload</span></code> of the request message. The contents of
+the payload include information to store in TheHive case.</p>
+<p>The next step is to perform a synchronous request via the DXL fabric. If the
+response message is not an error, its contents are displayed.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the id of the new case from the results of the new case request</span>
+<span class="n">case_id</span> <span class="o">=</span> <span class="n">create_case_response_dict</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+
+<span class="c1"># Create the get case request</span>
+<span class="n">request_topic</span> <span class="o">=</span> <span class="s2">&quot;/opendxl-thehive/service/thehive-api/case/get&quot;</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">request_topic</span><span class="p">)</span>
+
+<span class="c1"># Set the payload for the get case request</span>
+<span class="n">MessageUtils</span><span class="o">.</span><span class="n">dict_to_json_payload</span><span class="p">(</span>
+    <span class="n">req</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">case_id</span>
+    <span class="p">})</span>
+
+<span class="c1"># Send the get case request</span>
+<span class="n">get_case_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">sync_request</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">get_case_response</span><span class="o">.</span><span class="n">message_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">Message</span><span class="o">.</span><span class="n">MESSAGE_TYPE_ERROR</span><span class="p">:</span>
+    <span class="c1"># Display results for the get case request</span>
+    <span class="n">get_case_response_dict</span> <span class="o">=</span> <span class="n">MessageUtils</span><span class="o">.</span><span class="n">json_payload_to_dict</span><span class="p">(</span>
+        <span class="n">get_case_response</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Response for the get case request: &#39;{0}&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">MessageUtils</span><span class="o">.</span><span class="n">dict_to_json</span><span class="p">(</span><span class="n">get_case_response_dict</span><span class="p">,</span>
+                                  <span class="n">pretty_print</span><span class="o">=</span><span class="bp">True</span><span class="p">)))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Error invoking service with topic &#39;{0}&#39;: {1} ({2})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">request_topic</span><span class="p">,</span> <span class="n">get_case_response</span><span class="o">.</span><span class="n">error_message</span><span class="p">,</span>
+        <span class="n">get_case_response</span><span class="o">.</span><span class="n">error_code</span><span class="p">))</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>To confirm that the case was stored properly, a request message is created with
+a topic that targets the &quot;get_case&quot; method of TheHive API DXL service.</p>
+<p>The next step is to set the <code class="docutils literal notranslate"><span class="pre">payload</span></code> of the request message. The contents of
+the payload include the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the case to retrieve. Note that the
+<code class="docutils literal notranslate"><span class="pre">id</span></code> used in the get request is extracted from the response
+received for the prior &quot;create_case&quot; request.</p>
+<p>The next step is to perform a synchronous request via the DXL fabric. If the
+response message is not an error, its contents are displayed.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the new case task request</span>
+<span class="n">request_topic</span> <span class="o">=</span> <span class="s2">&quot;/opendxl-thehive/service/thehive-api/case/task/create&quot;</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">request_topic</span><span class="p">)</span>
+
+<span class="c1"># Set the payload for the new case task request</span>
+<span class="n">MessageUtils</span><span class="o">.</span><span class="n">dict_to_json_payload</span><span class="p">(</span>
+    <span class="n">req</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;caseId&quot;</span><span class="p">:</span> <span class="n">case_id</span><span class="p">,</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;OpenDXL Case Task Example&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span>
+            <span class="s2">&quot;Created by the OpenDXL Case Task Example&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;InProgress&quot;</span>
+    <span class="p">})</span>
+
+<span class="c1"># Send the new case task request</span>
+<span class="n">create_case_task_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">sync_request</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">create_case_task_response</span><span class="o">.</span><span class="n">message_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">Message</span><span class="o">.</span><span class="n">MESSAGE_TYPE_ERROR</span><span class="p">:</span>
+    <span class="c1"># Display results for the new case task request</span>
+    <span class="n">create_case_task_response_dict</span> <span class="o">=</span> <span class="n">MessageUtils</span><span class="o">.</span><span class="n">json_payload_to_dict</span><span class="p">(</span>
+        <span class="n">create_case_task_response</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Response for the create case task request: &#39;{0}&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">MessageUtils</span><span class="o">.</span><span class="n">dict_to_json</span><span class="p">(</span><span class="n">create_case_task_response_dict</span><span class="p">,</span>
+                                  <span class="n">pretty_print</span><span class="o">=</span><span class="bp">True</span><span class="p">)))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Error invoking service with topic &#39;{0}&#39;: {1} ({2})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">request_topic</span><span class="p">,</span> <span class="n">create_case_task_response</span><span class="o">.</span><span class="n">error_message</span><span class="p">,</span>
+        <span class="n">create_case_task_response</span><span class="o">.</span><span class="n">error_code</span><span class="p">))</span>
+    <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>A request message is then created with a topic that targets the
+&quot;create_case_task&quot; method of TheHive API DXL service.</p>
+<p>The next step is to set the <code class="docutils literal notranslate"><span class="pre">payload</span></code> of the request message. The contents of
+the payload include the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the case to associate the task with.
+Note that the <code class="docutils literal notranslate"><span class="pre">id</span></code> used in the request is extracted from the response
+received for the prior &quot;create_case&quot; request.</p>
+<p>The next step is to perform a synchronous request via the DXL fabric. If the
+response message is not an error, its contents are displayed.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the get case task request</span>
+<span class="n">request_topic</span> <span class="o">=</span> <span class="s2">&quot;/opendxl-thehive/service/thehive-api/case/task/get&quot;</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">request_topic</span><span class="p">)</span>
+
+<span class="c1"># Set the payload for the get case task request</span>
+<span class="n">MessageUtils</span><span class="o">.</span><span class="n">dict_to_json_payload</span><span class="p">(</span>
+    <span class="n">req</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">create_case_task_response_dict</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+    <span class="p">})</span>
+
+<span class="c1"># Send the get case task request</span>
+<span class="n">get_case_task_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">sync_request</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">get_case_task_response</span><span class="o">.</span><span class="n">message_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">Message</span><span class="o">.</span><span class="n">MESSAGE_TYPE_ERROR</span><span class="p">:</span>
+    <span class="c1"># Display results for the get case task request</span>
+    <span class="n">get_case_task_response_dict</span> <span class="o">=</span> <span class="n">MessageUtils</span><span class="o">.</span><span class="n">json_payload_to_dict</span><span class="p">(</span>
+        <span class="n">get_case_task_response</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Response for the get case task request: &#39;{0}&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">MessageUtils</span><span class="o">.</span><span class="n">dict_to_json</span><span class="p">(</span><span class="n">get_case_task_response_dict</span><span class="p">,</span>
+                                  <span class="n">pretty_print</span><span class="o">=</span><span class="bp">True</span><span class="p">)))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Error invoking service with topic &#39;{0}&#39;: {1} ({2})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">request_topic</span><span class="p">,</span> <span class="n">get_case_task_response</span><span class="o">.</span><span class="n">error_message</span><span class="p">,</span>
+        <span class="n">get_case_task_response</span><span class="o">.</span><span class="n">error_code</span><span class="p">))</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>To confirm that the task was stored properly, a request message is
+created with a topic that targets the &quot;get_case_task&quot; method of TheHive
+API DXL service.</p>
+<p>The next step is to set the <code class="docutils literal notranslate"><span class="pre">payload</span></code> of the request message. The contents of
+the payload include the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the task to retrieve. Note that the
+<code class="docutils literal notranslate"><span class="pre">id</span></code> used in the get request is extracted from the response received for the
+prior &quot;create_case_task&quot; request.</p>
+<p>The final step is to perform a synchronous request via the DXL fabric. If the
+response message is not an error, its contents are displayed.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Basic Create Case Task Example</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#running">Running</a></li>
+<li><a class="reference internal" href="#details">Details</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="basiccreatecaseobservableexample.html"
+                        title="previous chapter">Basic Create Case Observable Example</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="basicsearchalertexample.html"
+                        title="next chapter">Basic Search Alert Example</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/basiccreatecasetaskexample.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="basicsearchalertexample.html" title="Basic Search Alert Example"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="basiccreatecaseobservableexample.html" title="Basic Create Case Observable Example"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TheHive DXL Python Service 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, McAfee LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

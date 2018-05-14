@@ -1,0 +1,171 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dxlthehiveservice.thehive_client module &#8212; TheHive DXL Python Service 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="dxlthehiveservice.requesthandlers module" href="dxlthehiveservice.requesthandlers.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dxlthehiveservice.requesthandlers.html" title="dxlthehiveservice.requesthandlers module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TheHive DXL Python Service 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="dxlthehiveservice.html" accesskey="U">dxlthehiveservice package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-dxlthehiveservice.thehive_client">
+<span id="dxlthehiveservice-thehive-client-module"></span><h1>dxlthehiveservice.thehive_client module<a class="headerlink" href="#module-dxlthehiveservice.thehive_client" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="dxlthehiveservice.thehive_client.TheHiveClient">
+<em class="property">class </em><code class="descclassname">dxlthehiveservice.thehive_client.</code><code class="descname">TheHiveClient</code><span class="sig-paren">(</span><em>dxl_client</em>, <em>api_url</em>, <em>api_principal</em>, <em>api_password</em>, <em>verify_certificate</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.thehive_client.TheHiveClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>HTTP client through which requests to TheHive server should be sent.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_client</strong> (<em>dxlclient.client.DxlClient</em>) -- DXL client through which
+responses can be sent.</li>
+<li><strong>api_url</strong> (<em>str</em>) -- URL of TheHive API server.</li>
+<li><strong>api_principal</strong> (<em>str</em>) -- API key or username to use for requests made
+to TheHive server. The value is treated as a username only if
+a non-empty value is specified for the api_password parameter.</li>
+<li><strong>api_password</strong> (<em>str</em>) -- API password to use for requests made to
+TheHive server.</li>
+<li><strong>verify_certificate</strong> -- For a value of False, do not verify the
+server certificate in requests. For a value of True, verify the
+server certificate using the default trust store. For a string
+value, read the associated file name contents and use as a
+certificate trust store.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlthehiveservice.thehive_client.TheHiveClient.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>dxl_request</em>, <em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.thehive_client.TheHiveClient.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform an HTTP GET request to TheHive server, delivering the response
+to the DXL fabric.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_request</strong> (<em>dxlclient.message.Request</em>) -- DXL request containing
+parameters to forward along in a request to TheHive server.</li>
+<li><strong>path</strong> (<em>str</em>) -- URL subpath for the request to send to TheHive server.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlthehiveservice.thehive_client.TheHiveClient.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>dxl_request</em>, <em>path</em>, <em>body=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.thehive_client.TheHiveClient.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform an HTTP POST request to TheHive server, delivering the response
+to the DXL fabric.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_request</strong> (<em>dxlclient.message.Request</em>) -- DXL request containing
+parameters to forward along in a request to TheHive server.</li>
+<li><strong>path</strong> (<em>str</em>) -- URL subpath for the request to send to TheHive server.</li>
+<li><strong>body</strong> (<em>str</em>) -- Body to include in the HTTP request.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dxlthehiveservice.requesthandlers.html"
+                        title="previous chapter">dxlthehiveservice.requesthandlers module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/dxlthehiveservice.thehive_client.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dxlthehiveservice.requesthandlers.html" title="dxlthehiveservice.requesthandlers module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TheHive DXL Python Service 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="dxlthehiveservice.html" >dxlthehiveservice package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, McAfee LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

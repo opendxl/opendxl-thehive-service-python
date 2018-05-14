@@ -1,0 +1,573 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dxlthehiveservice.requesthandlers module &#8212; TheHive DXL Python Service 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dxlthehiveservice.thehive_client module" href="dxlthehiveservice.thehive_client.html" />
+    <link rel="prev" title="dxlthehiveservice.app module" href="dxlthehiveservice.app.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dxlthehiveservice.thehive_client.html" title="dxlthehiveservice.thehive_client module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="dxlthehiveservice.app.html" title="dxlthehiveservice.app module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TheHive DXL Python Service 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="dxlthehiveservice.html" accesskey="U">dxlthehiveservice package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-dxlthehiveservice.requesthandlers">
+<span id="dxlthehiveservice-requesthandlers-module"></span><h1>dxlthehiveservice.requesthandlers module<a class="headerlink" href="#module-dxlthehiveservice.requesthandlers" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback">
+<em class="property">class </em><code class="descclassname">dxlthehiveservice.requesthandlers.</code><code class="descname">TheHiveApiRequestCallback</code><span class="sig-paren">(</span><em>dxl_client</em>, <em>thehive_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dxlclient.callbacks.RequestCallback</span></code></p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_client</strong> (<em>dxlclient.client.DxlClient</em>) -- DXL client through which
+responses can be sent.</li>
+<li><strong>thehive_client</strong> (<a class="reference internal" href="dxlthehiveservice.thehive_client.html#dxlthehiveservice.thehive_client.TheHiveClient" title="dxlthehiveservice.thehive_client.TheHiveClient"><em>dxlthehiveservice.thehive_client.TheHiveClient</em></a>) -- HTTP client through which requests to TheHive server should be sent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback.on_request">
+<code class="descname">on_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback.on_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked when a request message is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> (<em>dxlclient.message.Request</em>) -- The request message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveCreateAlertRequestCallback">
+<em class="property">class </em><code class="descclassname">dxlthehiveservice.requesthandlers.</code><code class="descname">TheHiveCreateAlertRequestCallback</code><span class="sig-paren">(</span><em>dxl_client</em>, <em>thehive_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveCreateAlertRequestCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback" title="dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback</span></code></a></p>
+<p>Request callback used to invoke TheHive REST API for alert/create DXL
+requests.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_client</strong> (<em>dxlclient.client.DxlClient</em>) -- DXL client through which
+responses can be sent.</li>
+<li><strong>thehive_client</strong> (<a class="reference internal" href="dxlthehiveservice.thehive_client.html#dxlthehiveservice.thehive_client.TheHiveClient" title="dxlthehiveservice.thehive_client.TheHiveClient"><em>dxlthehiveservice.thehive_client.TheHiveClient</em></a>) -- HTTP client through which requests to TheHive server should be sent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveCreateAlertRequestCallback.on_request">
+<code class="descname">on_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveCreateAlertRequestCallback.on_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked when a request message is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> (<em>dxlclient.message.Request</em>) -- The request message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveCreateCaseObservableRequestCallback">
+<em class="property">class </em><code class="descclassname">dxlthehiveservice.requesthandlers.</code><code class="descname">TheHiveCreateCaseObservableRequestCallback</code><span class="sig-paren">(</span><em>dxl_client</em>, <em>thehive_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveCreateCaseObservableRequestCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback" title="dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback</span></code></a></p>
+<p>Request callback used to invoke TheHive REST API for case/observable/create
+DXL requests.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_client</strong> (<em>dxlclient.client.DxlClient</em>) -- DXL client through which
+responses can be sent.</li>
+<li><strong>thehive_client</strong> (<a class="reference internal" href="dxlthehiveservice.thehive_client.html#dxlthehiveservice.thehive_client.TheHiveClient" title="dxlthehiveservice.thehive_client.TheHiveClient"><em>dxlthehiveservice.thehive_client.TheHiveClient</em></a>) -- HTTP client through which requests to TheHive server should be sent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveCreateCaseObservableRequestCallback.on_request">
+<code class="descname">on_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveCreateCaseObservableRequestCallback.on_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked when a request message is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> (<em>dxlclient.message.Request</em>) -- The request message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveCreateCaseRequestCallback">
+<em class="property">class </em><code class="descclassname">dxlthehiveservice.requesthandlers.</code><code class="descname">TheHiveCreateCaseRequestCallback</code><span class="sig-paren">(</span><em>dxl_client</em>, <em>thehive_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveCreateCaseRequestCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback" title="dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback</span></code></a></p>
+<p>Request callback used to invoke TheHive REST API for case/create
+DXL requests.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_client</strong> (<em>dxlclient.client.DxlClient</em>) -- DXL client through which
+responses can be sent.</li>
+<li><strong>thehive_client</strong> (<a class="reference internal" href="dxlthehiveservice.thehive_client.html#dxlthehiveservice.thehive_client.TheHiveClient" title="dxlthehiveservice.thehive_client.TheHiveClient"><em>dxlthehiveservice.thehive_client.TheHiveClient</em></a>) -- HTTP client through which requests to TheHive server should be sent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveCreateCaseRequestCallback.on_request">
+<code class="descname">on_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveCreateCaseRequestCallback.on_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked when a request message is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> (<em>dxlclient.message.Request</em>) -- The request message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveCreateCaseTaskRequestCallback">
+<em class="property">class </em><code class="descclassname">dxlthehiveservice.requesthandlers.</code><code class="descname">TheHiveCreateCaseTaskRequestCallback</code><span class="sig-paren">(</span><em>dxl_client</em>, <em>thehive_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveCreateCaseTaskRequestCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback" title="dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback</span></code></a></p>
+<p>Request callback used to invoke TheHive REST API for case/task/create
+DXL requests.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_client</strong> (<em>dxlclient.client.DxlClient</em>) -- DXL client through which
+responses can be sent.</li>
+<li><strong>thehive_client</strong> (<a class="reference internal" href="dxlthehiveservice.thehive_client.html#dxlthehiveservice.thehive_client.TheHiveClient" title="dxlthehiveservice.thehive_client.TheHiveClient"><em>dxlthehiveservice.thehive_client.TheHiveClient</em></a>) -- HTTP client through which requests to TheHive server should be sent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveCreateCaseTaskRequestCallback.on_request">
+<code class="descname">on_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveCreateCaseTaskRequestCallback.on_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked when a request message is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> (<em>dxlclient.message.Request</em>) -- The request message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveGetAlertRequestCallback">
+<em class="property">class </em><code class="descclassname">dxlthehiveservice.requesthandlers.</code><code class="descname">TheHiveGetAlertRequestCallback</code><span class="sig-paren">(</span><em>dxl_client</em>, <em>thehive_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveGetAlertRequestCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback" title="dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback</span></code></a></p>
+<p>Request callback used to invoke TheHive REST API for alert/get DXL requests.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_client</strong> (<em>dxlclient.client.DxlClient</em>) -- DXL client through which
+responses can be sent.</li>
+<li><strong>thehive_client</strong> (<a class="reference internal" href="dxlthehiveservice.thehive_client.html#dxlthehiveservice.thehive_client.TheHiveClient" title="dxlthehiveservice.thehive_client.TheHiveClient"><em>dxlthehiveservice.thehive_client.TheHiveClient</em></a>) -- HTTP client through which requests to TheHive server should be sent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveGetAlertRequestCallback.on_request">
+<code class="descname">on_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveGetAlertRequestCallback.on_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked when a request message is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> (<em>dxlclient.message.Request</em>) -- The request message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveGetCaseObservableRequestCallback">
+<em class="property">class </em><code class="descclassname">dxlthehiveservice.requesthandlers.</code><code class="descname">TheHiveGetCaseObservableRequestCallback</code><span class="sig-paren">(</span><em>dxl_client</em>, <em>thehive_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveGetCaseObservableRequestCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback" title="dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback</span></code></a></p>
+<p>Request callback used to invoke TheHive REST API for case/observable/get
+DXL requests.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_client</strong> (<em>dxlclient.client.DxlClient</em>) -- DXL client through which
+responses can be sent.</li>
+<li><strong>thehive_client</strong> (<a class="reference internal" href="dxlthehiveservice.thehive_client.html#dxlthehiveservice.thehive_client.TheHiveClient" title="dxlthehiveservice.thehive_client.TheHiveClient"><em>dxlthehiveservice.thehive_client.TheHiveClient</em></a>) -- HTTP client through which requests to TheHive server should be sent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveGetCaseObservableRequestCallback.on_request">
+<code class="descname">on_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveGetCaseObservableRequestCallback.on_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked when a request message is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> (<em>dxlclient.message.Request</em>) -- The request message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveGetCaseRequestCallback">
+<em class="property">class </em><code class="descclassname">dxlthehiveservice.requesthandlers.</code><code class="descname">TheHiveGetCaseRequestCallback</code><span class="sig-paren">(</span><em>dxl_client</em>, <em>thehive_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveGetCaseRequestCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback" title="dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback</span></code></a></p>
+<p>Request callback used to invoke TheHive REST API for case/get DXL requests.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_client</strong> (<em>dxlclient.client.DxlClient</em>) -- DXL client through which
+responses can be sent.</li>
+<li><strong>thehive_client</strong> (<a class="reference internal" href="dxlthehiveservice.thehive_client.html#dxlthehiveservice.thehive_client.TheHiveClient" title="dxlthehiveservice.thehive_client.TheHiveClient"><em>dxlthehiveservice.thehive_client.TheHiveClient</em></a>) -- HTTP client through which requests to TheHive server should be sent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveGetCaseRequestCallback.on_request">
+<code class="descname">on_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveGetCaseRequestCallback.on_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked when a request message is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> (<em>dxlclient.message.Request</em>) -- The request message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveGetCaseTaskRequestCallback">
+<em class="property">class </em><code class="descclassname">dxlthehiveservice.requesthandlers.</code><code class="descname">TheHiveGetCaseTaskRequestCallback</code><span class="sig-paren">(</span><em>dxl_client</em>, <em>thehive_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveGetCaseTaskRequestCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback" title="dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback</span></code></a></p>
+<p>Request callback used to invoke TheHive REST API for case/task/get DXL
+requests.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_client</strong> (<em>dxlclient.client.DxlClient</em>) -- DXL client through which
+responses can be sent.</li>
+<li><strong>thehive_client</strong> (<a class="reference internal" href="dxlthehiveservice.thehive_client.html#dxlthehiveservice.thehive_client.TheHiveClient" title="dxlthehiveservice.thehive_client.TheHiveClient"><em>dxlthehiveservice.thehive_client.TheHiveClient</em></a>) -- HTTP client through which requests to TheHive server should be sent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveGetCaseTaskRequestCallback.on_request">
+<code class="descname">on_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveGetCaseTaskRequestCallback.on_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked when a request message is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> (<em>dxlclient.message.Request</em>) -- The request message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveSearchAlertRequestCallback">
+<em class="property">class </em><code class="descclassname">dxlthehiveservice.requesthandlers.</code><code class="descname">TheHiveSearchAlertRequestCallback</code><span class="sig-paren">(</span><em>dxl_client</em>, <em>thehive_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveSearchAlertRequestCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback" title="dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback</span></code></a></p>
+<p>Request callback used to invoke TheHive REST API for alert/search DXL
+requests.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_client</strong> (<em>dxlclient.client.DxlClient</em>) -- DXL client through which
+responses can be sent.</li>
+<li><strong>thehive_client</strong> (<a class="reference internal" href="dxlthehiveservice.thehive_client.html#dxlthehiveservice.thehive_client.TheHiveClient" title="dxlthehiveservice.thehive_client.TheHiveClient"><em>dxlthehiveservice.thehive_client.TheHiveClient</em></a>) -- HTTP client through which requests to TheHive server should be sent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveSearchAlertRequestCallback.on_request">
+<code class="descname">on_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveSearchAlertRequestCallback.on_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked when a request message is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> (<em>dxlclient.message.Request</em>) -- The request message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveSearchCaseObservableRequestCallback">
+<em class="property">class </em><code class="descclassname">dxlthehiveservice.requesthandlers.</code><code class="descname">TheHiveSearchCaseObservableRequestCallback</code><span class="sig-paren">(</span><em>dxl_client</em>, <em>thehive_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveSearchCaseObservableRequestCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback" title="dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback</span></code></a></p>
+<p>Request callback used to invoke TheHive REST API for case/observable/search
+DXL requests.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_client</strong> (<em>dxlclient.client.DxlClient</em>) -- DXL client through which
+responses can be sent.</li>
+<li><strong>thehive_client</strong> (<a class="reference internal" href="dxlthehiveservice.thehive_client.html#dxlthehiveservice.thehive_client.TheHiveClient" title="dxlthehiveservice.thehive_client.TheHiveClient"><em>dxlthehiveservice.thehive_client.TheHiveClient</em></a>) -- HTTP client through which requests to TheHive server should be sent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveSearchCaseObservableRequestCallback.on_request">
+<code class="descname">on_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveSearchCaseObservableRequestCallback.on_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked when a request message is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> (<em>dxlclient.message.Request</em>) -- The request message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveSearchCaseRequestCallback">
+<em class="property">class </em><code class="descclassname">dxlthehiveservice.requesthandlers.</code><code class="descname">TheHiveSearchCaseRequestCallback</code><span class="sig-paren">(</span><em>dxl_client</em>, <em>thehive_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveSearchCaseRequestCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback" title="dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback</span></code></a></p>
+<p>Request callback used to invoke TheHive REST API for case/search DXL
+requests.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_client</strong> (<em>dxlclient.client.DxlClient</em>) -- DXL client through which
+responses can be sent.</li>
+<li><strong>thehive_client</strong> (<a class="reference internal" href="dxlthehiveservice.thehive_client.html#dxlthehiveservice.thehive_client.TheHiveClient" title="dxlthehiveservice.thehive_client.TheHiveClient"><em>dxlthehiveservice.thehive_client.TheHiveClient</em></a>) -- HTTP client through which requests to TheHive server should be sent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveSearchCaseRequestCallback.on_request">
+<code class="descname">on_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveSearchCaseRequestCallback.on_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked when a request message is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> (<em>dxlclient.message.Request</em>) -- The request message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveSearchCaseTaskRequestCallback">
+<em class="property">class </em><code class="descclassname">dxlthehiveservice.requesthandlers.</code><code class="descname">TheHiveSearchCaseTaskRequestCallback</code><span class="sig-paren">(</span><em>dxl_client</em>, <em>thehive_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveSearchCaseTaskRequestCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback" title="dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlthehiveservice.requesthandlers.TheHiveApiRequestCallback</span></code></a></p>
+<p>Request callback used to invoke TheHive REST API for case/task/search
+DXL requests.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dxl_client</strong> (<em>dxlclient.client.DxlClient</em>) -- DXL client through which
+responses can be sent.</li>
+<li><strong>thehive_client</strong> (<a class="reference internal" href="dxlthehiveservice.thehive_client.html#dxlthehiveservice.thehive_client.TheHiveClient" title="dxlthehiveservice.thehive_client.TheHiveClient"><em>dxlthehiveservice.thehive_client.TheHiveClient</em></a>) -- HTTP client through which requests to TheHive server should be sent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlthehiveservice.requesthandlers.TheHiveSearchCaseTaskRequestCallback.on_request">
+<code class="descname">on_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlthehiveservice.requesthandlers.TheHiveSearchCaseTaskRequestCallback.on_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked when a request message is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> (<em>dxlclient.message.Request</em>) -- The request message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dxlthehiveservice.app.html"
+                        title="previous chapter">dxlthehiveservice.app module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dxlthehiveservice.thehive_client.html"
+                        title="next chapter">dxlthehiveservice.thehive_client module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/dxlthehiveservice.requesthandlers.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dxlthehiveservice.thehive_client.html" title="dxlthehiveservice.thehive_client module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="dxlthehiveservice.app.html" title="dxlthehiveservice.app module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TheHive DXL Python Service 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="dxlthehiveservice.html" >dxlthehiveservice package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, McAfee LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

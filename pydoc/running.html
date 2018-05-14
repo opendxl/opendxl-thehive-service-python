@@ -1,0 +1,165 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Running &#8212; TheHive DXL Python Service 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Docker Support" href="docker.html" />
+    <link rel="prev" title="Configuration" href="configuration.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="docker.html" title="Docker Support"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="configuration.html" title="Configuration"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TheHive DXL Python Service 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="running">
+<h1>Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h1>
+<p>Once the application library has been installed and the configuration files are populated it can be started by
+executing the following command line:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">dxlthehiveservice</span> <span class="o">&lt;</span><span class="n">configuration</span><span class="o">-</span><span class="n">directory</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;configuration-directory&gt;</span></code> argument must point to a directory containing the configuration files
+required for the application (see <a class="reference internal" href="configuration.html"><span class="doc">Configuration</span></a>).</p>
+</div></blockquote>
+<p>For example:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">dxlthehiveservice</span> <span class="n">config</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>The output from starting the service with the <code class="docutils literal notranslate"><span class="pre">sample</span></code> sub-directory
+configuration should appear similar to the following:</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Running application ...
+On <span class="s1">&#39;run&#39;</span> callback.
+On <span class="s1">&#39;load configuration&#39;</span> callback.
+Incoming message configuration: <span class="nv">queueSize</span><span class="o">=</span><span class="m">1000</span>, <span class="nv">threadCount</span><span class="o">=</span><span class="m">10</span>
+Message callback configuration: <span class="nv">queueSize</span><span class="o">=</span><span class="m">1000</span>, <span class="nv">threadCount</span><span class="o">=</span><span class="m">10</span>
+Attempting to connect to DXL fabric ...
+Waiting <span class="k">for</span> broker list...
+Trying to connect...
+Trying to connect to broker <span class="o">{</span>Unique id: dockerhost, Host name: <span class="m">192</span>.168.99.100, IP address: <span class="m">192</span>.168.99.100, Port: <span class="m">8883</span><span class="o">}</span>...
+Connected to broker dockerhost
+Connected to DXL fabric.
+Registering service: thehive_service
+Connecting to API URL: http://192.168.99.100:9000
+Registering request callback: thehive_create_case_requesthandler
+Registering request callback: thehive_create_case_task_requesthandler
+Registering request callback: thehive_create_case_observable_requesthandler
+Registering request callback: thehive_get_case_requesthandler
+Registering request callback: thehive_get_case_task_requesthandler
+Registering request callback: thehive_get_case_observable_requesthandler
+Registering request callback: thehive_search_case_requesthandler
+Registering request callback: thehive_search_case_task_requesthandler
+Registering request callback: thehive_search_case_observable_requesthandler
+Registering request callback: thehive_create_alert_requesthandler
+Registering request callback: thehive_get_alert_requesthandler
+Registering request callback: thehive_search_alert_requesthandler
+On <span class="s1">&#39;DXL connect&#39;</span> callback.
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Running</a><ul>
+<li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="configuration.html"
+                        title="previous chapter">Configuration</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="docker.html"
+                        title="next chapter">Docker Support</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/running.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="docker.html" title="Docker Support"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="configuration.html" title="Configuration"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TheHive DXL Python Service 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, McAfee LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

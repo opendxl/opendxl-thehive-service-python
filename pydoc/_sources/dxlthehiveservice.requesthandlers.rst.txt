@@ -1,0 +1,7 @@
+dxlthehiveservice.requesthandlers module
+========================================
+
+.. automodule:: dxlthehiveservice.requesthandlers
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+dxlthehiveservice.thehive\_client module
+========================================
+
+.. automodule:: dxlthehiveservice.thehive_client
+    :members:
+    :undoc-members:
+    :show-inheritance:

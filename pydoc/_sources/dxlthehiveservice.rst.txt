@@ -1,0 +1,19 @@
+dxlthehiveservice package
+=========================
+
+Submodules
+----------
+
+.. toctree::
+
+   dxlthehiveservice.app
+   dxlthehiveservice.requesthandlers
+   dxlthehiveservice.thehive_client
+
+Module contents
+---------------
+
+.. automodule:: dxlthehiveservice
+    :members:
+    :undoc-members:
+    :show-inheritance:

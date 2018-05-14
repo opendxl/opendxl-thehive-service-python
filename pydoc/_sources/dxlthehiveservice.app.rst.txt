@@ -1,0 +1,7 @@
+dxlthehiveservice.app module
+============================
+
+.. automodule:: dxlthehiveservice.app
+    :members:
+    :undoc-members:
+    :show-inheritance:
