@@ -17,6 +17,7 @@ Installation and Configuration
 
 	installation
 	configuration
+	thehivecertverification
 	running
 
 Service Methods
