@@ -12,6 +12,8 @@ Prerequisites
 
 * Python 2.7.9 or higher in the Python 2.x series or 3.4.0 or higher in the Python 3.x series installed within a Windows or Linux environment.
 
+..
+
 * TheHive server and its dependencies installed and configured.
    `<https://github.com/TheHive-Project/TheHiveDocs#installation-guides>`_
 
