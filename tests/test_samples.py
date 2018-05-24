@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 import base64
 import json
+import os
 import re
 import sys
 from tempfile import NamedTemporaryFile
@@ -70,8 +71,7 @@ class Sample(unittest.TestCase):
 
     def run_sample(self, sample_file, add_request_mocks_fn=None,
                    api_password=""):
-        with dxlthehiveservice.TheHiveService("sample") as app, \
-                NamedTemporaryFile(mode="w+") as temp_config_file:
+        with dxlthehiveservice.TheHiveService("sample") as app:
             config = ConfigParser()
             config.read(app._app_config_path)
 
@@ -109,13 +109,17 @@ class Sample(unittest.TestCase):
                     dxlthehiveservice.TheHiveService._GENERAL_USE_SSL_CONFIG_PROP,
                     "yes"
                 )
-                config.write(temp_config_file)
-                temp_config_file.flush()
-                app._app_config_path = temp_config_file.name
-                with requests_mock.mock(case_sensitive=True) as req_mock:
-                    if add_request_mocks_fn:
-                        add_request_mocks_fn(req_mock)
-                    mock_print = self._run_sample(app, sample_file)
+                with NamedTemporaryFile(mode="w+", delete=False) \
+                    as temp_config_file:
+                    config.write(temp_config_file)
+                try:
+                    app._app_config_path = temp_config_file.name
+                    with requests_mock.mock(case_sensitive=True) as req_mock:
+                        if add_request_mocks_fn:
+                            add_request_mocks_fn(req_mock)
+                        mock_print = self._run_sample(app, sample_file)
+                finally:
+                    os.remove(temp_config_file.name)
             else:
                 mock_print = self._run_sample(app, sample_file)
                 req_mock = None
