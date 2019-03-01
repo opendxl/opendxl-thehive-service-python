@@ -1,0 +1,616 @@
+openDxlApi: '0.1'
+info:
+  title: 'TheHive DXL Service'
+  version: 0.1.0
+  description: 'The TheHive DXL service exposes access to the <a href=''https://github.com/TheHive-Project/TheHiveDocs/tree/master/api''>TheHive REST APIs</a> via the <a href=''http://www.mcafee.com/us/solutions/data-exchange-layer.aspx''>Data Exchange Layer</a> (DXL) fabric.'
+  contact:
+    name: OpenDXL
+    url: 'https://www.opendxl.com'
+solutions:
+  'TheHive DXL Service':
+    info:
+      title: 'TheHive DXL Service'
+      version: 0.1.0
+      description: 'The TheHive DXL Service.'
+    externalDocs:
+      description: 'TheHive REST API Reference'
+      url: 'https://github.com/TheHive-Project/TheHiveDocs/tree/master/api'
+    services:
+      -
+        $ref: '#/services/TheHive DXL Service'
+    events: []
+services:
+  'TheHive DXL Service':
+    info:
+      title: 'TheHive DXL Service'
+      version: 0.1.0
+      description: 'The TheHive DXL service exposes access to the <a href=''https://github.com/TheHive-Project/TheHiveDocs/tree/master/api''>TheHive REST APIs</a> via the <a href=''http://www.mcafee.com/us/solutions/data-exchange-layer.aspx''>Data Exchange Layer</a> (DXL) fabric.'
+    externalDocs:
+      description: 'TheHive DXL Python Service (GitHub)'
+      url: 'https://github.com/opendxl/opendxl-thehive-service-python'
+    requests:
+      -
+        $ref: '#/requests/~1opendxl-thehive~1service~1thehive-api~1case~1create'
+      -
+        $ref: '#/requests/~1opendxl-thehive~1service~1thehive-api~1case~1task~1create'
+      -
+        $ref: '#/requests/~1opendxl-thehive~1service~1thehive-api~1case~1observable~1create'
+      -
+        $ref: '#/requests/~1opendxl-thehive~1service~1thehive-api~1case~1get'
+      -
+        $ref: '#/requests/~1opendxl-thehive~1service~1thehive-api~1case~1task~1get'
+      -
+        $ref: '#/requests/~1opendxl-thehive~1service~1thehive-api~1case~1observable~1get'
+      -
+        $ref: '#/requests/~1opendxl-thehive~1service~1thehive-api~1case~1search'
+      -
+        $ref: '#/requests/~1opendxl-thehive~1service~1thehive-api~1case~1task~1search'
+      -
+        $ref: '#/requests/~1opendxl-thehive~1service~1thehive-api~1case~1observable~1search'
+      -
+        $ref: '#/requests/~1opendxl-thehive~1service~1thehive-api~1alert~1create'
+      -
+        $ref: '#/requests/~1opendxl-thehive~1service~1thehive-api~1alert~1get'
+      -
+        $ref: '#/requests/~1opendxl-thehive~1service~1thehive-api~1alert~1search'
+requests:
+  /opendxl-thehive/service/thehive-api/case/create:
+    description: 'Invokes an TheHive ''Create Case'' command and returns the results.'
+    externalDocs:
+      description: 'TheHive API: Case'
+      url: 'https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/case.md'
+    payload:
+      description: 'For a list of attributes that can be used with this command, see: <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/case.md#model-definition''>TheHive API: Case (Model Definition)</a>.'
+      properties:
+        description:
+          description: 'Description of the case.'
+          type: integer
+        title:
+          description: 'Title of the task.'
+          type: string
+      required:
+        - description
+        - title
+      example:
+        title: 'OpenDXL Case Example'
+        description: 'Created by the OpenDXL Case Example'
+        severity: 3
+    response:
+      description: 'The contents of the DXL response payload are provided as a JSON string form of the response provided by the TheHive API. Please see the <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/case.md#examples''>TheHive API</a> for further details.'
+      payload:
+        example:
+          _id: AWLVqGV4EL_PtpkToK8t
+          _parent: null
+          _routing: AWLVqGV4EL_PtpkToK8t
+          _type: case
+          _version: 1
+          caseId: 90
+          createdAt: 1524003005674
+          createdBy: admin
+          customFields: {}
+          description: 'Created by the OpenDXL Case Example'
+          flag: false
+          id: AWLVqGV4EL_PtpkToK8t
+          metrics: {}
+          owner: admin
+          severity: 3
+          startDate: 1524003005814
+          status: Open
+          title: 'OpenDXL Case Example'
+          tlp: 2
+    errorResponses:
+      '0':
+        payload:
+          $ref: '#/definitions/Error Response Object'
+  /opendxl-thehive/service/thehive-api/case/task/create:
+    description: 'Invokes an TheHive ''Create Task'' command and returns the results.'
+    externalDocs:
+      description: 'TheHive API: Task'
+      url: 'https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/task.md'
+    payload:
+      description: 'For a list of additional attributes that can be used with this command, see: <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/task.md#model-definition''>TheHive API: Task (Model Definition)</a>.'
+      properties:
+        caseId:
+          description: 'ID of the case.'
+          type: integer
+        title:
+          description: 'Title of the task.'
+          type: string
+      required:
+        - caseId
+        - title
+      example:
+        caseId: '7'
+        title: 'OpenDXL Task Example'
+        owner: myuser
+    response:
+      description: 'The contents of the DXL response payload are provided as a JSON string form of the response provided by the TheHive API. Please see the <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/task.md#examples''>TheHive API</a> for further details.'
+      payload:
+        example:
+          createdAt: 1488918771513
+          status: Waiting
+          createdBy: admin
+          title: 'OpenDXL Task Example'
+          order: 0
+          user: myuser
+          flag: false
+          id: AVqqeXc9yQ6w1DNC8aDj
+          _id: AVqqeXc9yQ6w1DNC8aDj
+          _type: case_task
+    errorResponses:
+      '0':
+        payload:
+          $ref: '#/definitions/Error Response Object'
+  /opendxl-thehive/service/thehive-api/case/observable/create:
+    description: 'Invokes an TheHive ''Create Observable'' command and returns the results.'
+    externalDocs:
+      description: 'TheHive API: Observable'
+      url: 'https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/artifact.md'
+    payload:
+      description: 'For a list of additional attributes that can be used with this command, see: <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/artifact.md#model-definition''>TheHive API: Observable (Model Definition)</a>.'
+      properties:
+        caseId:
+          description: 'ID of the case.'
+          type: integer
+        data:
+          description: 'Cannot be provided if <i>attachment</i> provided. <b>Required</b> if <i>attachment</i> not provided.'
+          type: string
+        attachment:
+          description: 'Binary data as string. Cannot be provided if <i>data</i> provided. <b>Required</b> if <i>data</i> not provided.'
+          type: string
+      required:
+        - caseId
+      example:
+        caseId: 7
+        data: OpenDXL
+        message: 'Created by the OpenDXL Observable Example'
+        dataType: user-agent
+    response:
+      description: 'The contents of the DXL response payload are provided as a JSON string form of the response provided by the TheHive API. Please see the <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/artifact.md''>TheHive API</a> for further details.'
+      payload:
+        example:
+          _id: 7179b9c6564146841b69bfe0699013db
+          _parent: AWLVqGV4EL_PtpkToK8t
+          _routing: AWLVqGV4EL_PtpkToK8t
+          _type: case_artifact
+          _version: 1
+          createdAt: 1524003006922
+          createdBy: admin
+          data: OpenDXL
+          dataType: user-agent
+          id: 7179b9c6564146841b69bfe0699013db
+          ioc: false
+          message: 'Created by the OpenDXL Observable Example'
+          reports: {}
+          sighted: false
+          startDate: 1524003006946
+          status: Ok
+          tags: []
+          tlp: 2
+    errorResponses:
+      '0':
+        payload:
+          $ref: '#/definitions/Error Response Object'
+  /opendxl-thehive/service/thehive-api/case/get:
+    description: 'Invokes an TheHive ''Get Case'' command and returns the results.'
+    externalDocs:
+      description: 'TheHive API: Case'
+      url: 'https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/case.md'
+    payload:
+      properties:
+        id:
+          description: '<i>id</i> string corresponding to the case. This ID is part of the response from a ''Create Case'' command, in the <i>id</i> field. It is <b>not</b> the same as the <i>caseId</i>.'
+          type: string
+      required:
+        - id
+      example:
+        id: AWLVqGV4EL_PtpkToK8t
+    response:
+      description: 'The contents of the DXL response payload are provided as a JSON string form of the response provided by the TheHive API. Please see the <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/case.md#examples''>TheHive API</a> for further details.'
+      payload:
+        example:
+          _id: AWLVqGV4EL_PtpkToK8t
+          _parent: null
+          _routing: AWLVqGV4EL_PtpkToK8t
+          _type: case
+          _version: 1
+          caseId: 90
+          createdAt: 1524003005674
+          createdBy: admin
+          customFields: {}
+          description: 'Created by the OpenDXL Case Example'
+          flag: false
+          id: AWLVqGV4EL_PtpkToK8t
+          metrics: {}
+          owner: admin
+          severity: 3
+          startDate: 1524003005814
+          status: Open
+          title: 'OpenDXL Case Example'
+          tlp: 2
+    errorResponses:
+      '0':
+        payload:
+          $ref: '#/definitions/Error Response Object'
+  /opendxl-thehive/service/thehive-api/case/task/get:
+    description: 'Invokes an TheHive ''Get Task'' command and returns the results.'
+    externalDocs:
+      description: 'TheHive API: Task'
+      url: 'https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/task.md'
+    payload:
+      properties:
+        id:
+          description: '<i>id</i> string corresponding to the case. This ID is part of the response from a ''Create Case'' command, in the <i>id</i> field. It is <b>not</b> the same as the <i>caseId</i>.'
+          type: string
+      required:
+        - id
+      example:
+        id: AWLVqGV4EL_PtpkToK8t
+    response:
+      description: 'The contents of the DXL response payload are provided as a JSON string form of the response provided by the TheHive API. Please see the <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/task.md#examples''>TheHive API</a> for further details.'
+      payload:
+        example:
+          _id: AWLVqVSlEL_PtpkToK_D
+          _parent: AWLVqVBjEL_PtpkToK_B
+          _routing: AWLVqVBjEL_PtpkToK_B
+          _type: case_task
+          _version: 1
+          createdAt: 1524003067041
+          createdBy: admin
+          description: 'Created by the OpenDXL Task Example'
+          flag: false
+          id: AWLVqVSlEL_PtpkToK_D
+          order: 0
+          status: InProgress
+          title: 'OpenDXL Task Example'
+    errorResponses:
+      '0':
+        payload:
+          $ref: '#/definitions/Error Response Object'
+  /opendxl-thehive/service/thehive-api/case/observable/get:
+    description: 'Invokes an TheHive ''Get Observable'' command and returns the results.'
+    externalDocs:
+      description: 'TheHive API: Observable'
+      url: 'https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/artifact.md'
+    payload:
+      properties:
+        id:
+          description: '<i>id</i> string corresponding to the case. This ID is part of the response from a ''Create Case'' command, in the <i>id</i> field. It is <b>not</b> the same as the <i>caseId</i>.'
+          type: string
+      required:
+        - id
+      example:
+        id: AWLVqGV4EL_PtpkToK8t
+    response:
+      description: 'The contents of the DXL response payload are provided as a JSON string form of the response provided by the TheHive API. Please see the <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/case.md#examples''>TheHive API</a> for further details.'
+      payload:
+        example:
+          _id: 7179b9c6564146841b69bfe0699013db
+          _parent: AWLVqGV4EL_PtpkToK8t
+          _routing: AWLVqGV4EL_PtpkToK8t
+          _type: case_artifact
+          _version: 1
+          createdAt: 1524003006922
+          createdBy: admin
+          data: OpenDXL
+          dataType: user-agent
+          id: 7179b9c6564146841b69bfe0699013db
+          ioc: false
+          message: 'Created by the OpenDXL Observable Example'
+          reports: {}
+          sighted: false
+          startDate: 1524003006946
+          status: Ok
+          tags: []
+          tlp: 2
+    errorResponses:
+      '0':
+        payload:
+          $ref: '#/definitions/Error Response Object'
+  /opendxl-thehive/service/thehive-api/case/search:
+    description: 'Invokes an TheHive ''Case Search'' command and returns the results.'
+    externalDocs:
+      description: 'TheHive API: Case'
+      url: 'https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/case.md'
+    payload:
+      properties:
+        query:
+          description: 'A search parameter JSON object to match against case properties. <p>The example payload provided here demonstrates how to match only cases with a value for the ''title'' field which includes the words ''OpenDXL'' and ''Example''.'
+          type: object
+        range:
+          description: 'The range to return from the search results.'
+        sort:
+          description: 'The order and value by which to sort the results. (For example: ''-createdAt'' will sort by the <i>createdAt</i> attribute, in descending order.'
+          type: array
+          items:
+            type: string
+      example:
+        query:
+          _string: 'title:(OpenDXL AND Example)'
+        range: 0-1
+        sort:
+          - '-createdAt'
+    response:
+      description: 'The contents of the DXL response payload are provided as a JSON string form of the response provided by the TheHive API. Please see the <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/case.md#examples''>TheHive API</a> for further details.'
+      payload:
+        example:
+          -
+            _id: AWLVqVBjEL_PtpkToK_B
+            _parent: null
+            _routing: AWLVqVBjEL_PtpkToK_B
+            _type: case
+            _version: 1
+            caseId: 91
+            createdAt: 1524003064979
+            createdBy: admin
+            customFields: {}
+            description: 'Created by the OpenDXL Case Example'
+            flag: false
+            id: AWLVqVBjEL_PtpkToK_B
+            metrics: {}
+            owner: admin
+            severity: 3
+            startDate: 1524003065953
+            status: Open
+            title: 'OpenDXL Case Task Example'
+            tlp: 2
+    errorResponses:
+      '0':
+        payload:
+          $ref: '#/definitions/Error Response Object'
+  /opendxl-thehive/service/thehive-api/case/task/search:
+    description: 'Invokes an TheHive ''Task Search'' command and returns the results.'
+    externalDocs:
+      description: 'TheHive API: Task'
+      url: 'https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/task.md'
+    payload:
+      properties:
+        query:
+          description: 'A search parameter JSON object to match against case properties. <p>The example payload provided here demonstrates how to match only tasks with a value for the ''title'' field which includes the words ''OpenDXL'' and ''Example''.'
+          type: object
+        range:
+          description: 'The range to return from the search results.'
+        sort:
+          description: 'The order and value by which to sort the results. (For example: ''-createdAt'' will sort by the <i>createdAt</i> attribute, in descending order.'
+          type: array
+          items:
+            type: string
+      example:
+        query:
+          _string: 'title:(OpenDXL AND Example)'
+        range: 0-1
+        sort:
+          - '-createdAt'
+    response:
+      description: 'The contents of the DXL response payload are provided as a JSON string form of the response provided by the TheHive API. Please see the <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/task.md#examples''>TheHive API</a> for further details.'
+      payload:
+        example:
+          -
+            _id: AWLVqVSlEL_PtpkToK_D
+            _parent: AWLVqVBjEL_PtpkToK_B
+            _routing: AWLVqVBjEL_PtpkToK_B
+            _type: case_task
+            _version: 1
+            createdAt: 1524003067041
+            createdBy: admin
+            description: 'Created by the OpenDXL Task Example'
+            flag: false
+            id: AWLVqVSlEL_PtpkToK_D
+            order: 0
+            status: InProgress
+            title: 'OpenDXL Task Example'
+    errorResponses:
+      '0':
+        payload:
+          $ref: '#/definitions/Error Response Object'
+  /opendxl-thehive/service/thehive-api/case/observable/search:
+    description: 'Invokes an TheHive ''Observable Search'' command and returns the results.'
+    externalDocs:
+      description: 'TheHive API: Observable'
+      url: 'https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/artifact.md'
+    payload:
+      properties:
+        query:
+          description: 'A search parameter JSON object to match against case properties. <p>The example payload provided here demonstrates how to match only observables with a value for the ''title'' field which includes the words ''OpenDXL'' and ''Example''.'
+          type: object
+        range:
+          description: 'The range to return from the search results.'
+        sort:
+          description: 'The order and value by which to sort the results. (For example: ''-createdAt'' will sort by the <i>createdAt</i> attribute, in descending order.'
+          type: array
+          items:
+            type: string
+      example:
+        query:
+          _string: 'title:(OpenDXL AND Example)'
+        range: 0-1
+        sort:
+          - '-createdAt'
+    response:
+      description: 'The contents of the DXL response payload are provided as a JSON string form of the response provided by the TheHive API. Please see the <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/case.md#examples''>TheHive API</a> for further details.'
+      payload:
+        example:
+          -
+            _id: 7179b9c6564146841b69bfe0699013db
+            _parent: AWLVqGV4EL_PtpkToK8t
+            _routing: AWLVqGV4EL_PtpkToK8t
+            _type: case_artifact
+            _version: 1
+            createdAt: 1524003006922
+            createdBy: admin
+            data: OpenDXL
+            dataType: user-agent
+            id: 7179b9c6564146841b69bfe0699013db
+            ioc: false
+            message: 'Created by the OpenDXL Observable Example'
+            reports: {}
+            sighted: false
+            startDate: 1524003006946
+            status: Ok
+            tags: []
+            tlp: 2
+    errorResponses:
+      '0':
+        payload:
+          $ref: '#/definitions/Error Response Object'
+  /opendxl-thehive/service/thehive-api/alert/create:
+    description: 'Invokes an TheHive ''Create Alert'' command and returns the results.'
+    externalDocs:
+      description: 'TheHive API: Alert'
+      url: 'https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/alert.md'
+    payload:
+      description: 'For a list of additional attributes that can be used with this command, see: <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/alert.md#model-definition''>TheHive API: Alert (Model Definition)</a>.'
+      properties:
+        title:
+          description: 'Title of the alert.'
+          type: string
+        description:
+          description: 'description of the alert.'
+          type: string
+        type:
+          description: 'Type of the alert (read only).'
+          type: string
+        source:
+          description: 'Source of the alert (read only).'
+          type: string
+        sourceRef:
+          description: 'Source reference of the alert (read only).'
+          type: string
+      required:
+        - title
+        - description
+        - type
+        - source
+        - sourceRef
+      example:
+        title: 'OpenDXL Alert Example'
+        description: 'Created by the OpenDXL Alert Example'
+        severity: 3
+        source: OpenDXL
+        sourceRef: 1b9e593c-b113-4c0f-a0b0-30b15d4b9268
+        type: external
+    response:
+      description: 'The contents of the DXL response payload are provided as a JSON string form of the response provided by the TheHive API. Please see the <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/alert.md#create-an-alert''>TheHive API</a> for further details.'
+      payload:
+        example:
+          _id: 237c6fbc97b86f81b30365acfc7e04c8
+          _parent: null
+          _routing: 237c6fbc97b86f81b30365acfc7e04c8
+          _type: alert
+          _version: 1
+          artifacts: []
+          createdAt: 1524002836273
+          createdBy: admin
+          date: 1524002836301
+          description: 'Created by the OpenDXL Alert Example'
+          follow: true
+          id: 237c6fbc97b86f81b30365acfc7e04c8
+          lastSyncDate: 1524002836302
+          severity: 3
+          source: OpenDXL
+          sourceRef: 1471d7d94f6042cd
+          status: New
+          title: 'OpenDXL Alert Example'
+          tlp: 2
+          type: external
+    errorResponses:
+      '0':
+        payload:
+          $ref: '#/definitions/Error Response Object'
+  /opendxl-thehive/service/thehive-api/alert/get:
+    description: 'Invokes an TheHive ''Get Alert'' command and returns the results.'
+    externalDocs:
+      description: 'TheHive API: Alert'
+      url: 'https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/alert.md'
+    payload:
+      properties:
+        id:
+          description: '<i>id</i> string corresponding to the alert. This ID is part of the response from a ''Create Alert'' command, in the <i>id</i> field.'
+          type: string
+      required:
+        - id
+      example:
+        id: 237c6fbc97b86f81b30365acfc7e04c8
+    response:
+      description: 'The contents of the DXL response payload are provided as a JSON string form of the response provided by the TheHive API. Please see the <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/alert.md#get-an-alert''>TheHive API</a> for further details.'
+      payload:
+        example:
+          _id: 237c6fbc97b86f81b30365acfc7e04c8
+          _parent: null
+          _routing: 237c6fbc97b86f81b30365acfc7e04c8
+          _type: alert
+          _version: 1
+          artifacts: []
+          createdAt: 1524002836273
+          createdBy: admin
+          date: 1524002836301
+          description: 'Created by the OpenDXL Alert Example'
+          follow: true
+          id: 237c6fbc97b86f81b30365acfc7e04c8
+          lastSyncDate: 1524002836302
+          severity: 3
+          source: OpenDXL
+          sourceRef: 1471d7d94f6042cd
+          status: New
+          title: 'OpenDXL Alert Example'
+          tlp: 2
+          type: external
+    errorResponses:
+      '0':
+        payload:
+          $ref: '#/definitions/Error Response Object'
+  /opendxl-thehive/service/thehive-api/alert/search:
+    description: 'Invokes an TheHive ''Alert Search'' command and returns the results.'
+    externalDocs:
+      description: 'TheHive API: Alert'
+      url: 'https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/alert.md'
+    payload:
+      properties:
+        query:
+          description: 'A search parameter JSON object to match against case properties. <p>The example payload provided here demonstrates how to match only alerts with a value for the ''title'' field which includes the words ''OpenDXL'' and ''Example''.'
+          type: object
+        range:
+          description: 'The range to return from the search results.'
+        sort:
+          description: 'The order and value by which to sort the results. (For example: ''-createdAt'' will sort by the <i>createdAt</i> attribute, in descending order.'
+          type: array
+          items:
+            type: string
+      example:
+        query:
+          _string: 'title:(OpenDXL AND Example)'
+        range: 0-1
+        sort:
+          - '-createdAt'
+    response:
+      description: 'The contents of the DXL response payload are provided as a JSON string form of the response provided by the TheHive API. Please see the <a href=''https://github.com/TheHive-Project/TheHiveDocs/blob/master/api/alert.md#examples''>TheHive API</a> for further details.'
+      payload:
+        example:
+          -
+            _id: 237c6fbc97b86f81b30365acfc7e04c8
+            _parent: null
+            _routing: 237c6fbc97b86f81b30365acfc7e04c8
+            _type: alert
+            _version: 1
+            artifacts: []
+            createdAt: 1524002836273
+            createdBy: admin
+            date: 1524002836301
+            description: 'Created by the OpenDXL Alert Example'
+            follow: true
+            id: 237c6fbc97b86f81b30365acfc7e04c8
+            lastSyncDate: 1524002836302
+            severity: 3
+            source: OpenDXL
+            sourceRef: 1471d7d94f6042cd
+            status: New
+            title: 'OpenDXL Alert Example'
+            tlp: 2
+            type: external
+    errorResponses:
+      '0':
+        payload:
+          $ref: '#/definitions/Error Response Object'
+definitions:
+  'Error Response Object':
+    example: 'Error handling request: Attribute "title" is missing'
