@@ -3,7 +3,7 @@
 [![Latest PyPI Version](https://img.shields.io/pypi/v/dxlthehiveservice.svg)](https://pypi.python.org/pypi/dxlthehiveservice)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Actions Status](https://github.com/opendxl/opendxl-thehive-service-python/workflows/Build/badge.svg)](https://github.com/opendxl/opendxl-thehive-service-python/actions)
-[![Docker Build Status](https://img.shields.io/docker/build/opendxl/opendxl-thehive-service-python.svg)](https://hub.docker.com/r/opendxl/opendxl-thehive-service-python/)
+[![Docker Build Status](https://img.shields.io/docker/cloud/build/opendxl/opendxl-thehive-service-python.svg)](https://hub.docker.com/r/opendxl/opendxl-thehive-service-python/)
 
 
 ## Overview
